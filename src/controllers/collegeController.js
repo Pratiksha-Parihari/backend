@@ -25,7 +25,7 @@ const createCollege=async function(req,res){
           }
           let valid= await collegeModel.findOne({name:data.name})
           if(valid){
-            return res.status(400).send({status:false,message:"college allready register"})
+            return res.status(400).send({status:false,message:"college already register"})
           }
           //end validation checking
 
@@ -41,7 +41,7 @@ const createCollege=async function(req,res){
 const getCollegeData =async function (req,res){
 
     try{
-        res.setHeader('Access-Control-Allow-Origin','*')
+         res.setHeader('Access-Control-Allow-Origin','*')
         let colName = req.query
         let {collegeName} =colName
         if(Object.keys(colName).length==0) return res.status(400).send({status:false,message:"Please provide query param of collegeName"})
